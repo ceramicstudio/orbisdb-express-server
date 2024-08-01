@@ -1,0 +1,20 @@
+FROM nvidia/cuda:11.3.1-runtime-ubuntu20.04
+
+RUN apt-get update && apt-get install -y \
+    python3-dev \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip3 install -r requirements.txt
+
+WORKDIR /app/src
+
+ENV IS_DOCKER_CONTAINER=1
+
+CMD ["sh", "-c", "bash start.sh --hf_token ${HF_TOKEN} --flock_api_key ${FLOCK_API_KEY} --task_id ${TASK_ID} --validation_args_file validation_config.json.example"]
