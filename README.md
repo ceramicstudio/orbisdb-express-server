@@ -44,7 +44,26 @@ CERAMIC_URL: (Value under "Ceramic Node URL")
 
 5. In the same page, set up a new context by clicking the blue `+ Add context` button. Copy the corresponding ID into your `.env` file and assign it to `CONTEXT_ID`.
 
-6. Finally, go to the "Model builder" tab of your studio view and create a new model using the definition found in the [tables](data-models/tables.sql) file. Copy the corresponding ID and assign it to `TABLE_ID` IN YOUR `.env` file.
+6. Finally, go to the "Model builder" tab of your studio view and create a new model using the definition below:
+
+```SQL
+-- LIST accountRelation
+
+table validation_assignments {
+  stream_id text -- The stream id of the post - auto-generated (do not define when creating table)
+  controller text -- The DID controller of the post - auto-generated (do not define when creating table)
+  data text
+  score number
+  status number
+  stake_id number
+  created_at DateTime
+  updated_at DateTime
+  assigned_at DateTime
+  validated_at DateTime
+  validation_phase text
+  task_submission_id number
+}
+```
 
 7. You are now ready to run the server! Run the following command in your terminal:
 
