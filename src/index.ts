@@ -1,6 +1,6 @@
 import express, { json, Request, Response, NextFunction } from 'express'
 import cors from 'cors'
-import writeRouter from './routes/write.js'
+import router from './routes/all.js'
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -22,7 +22,7 @@ const allowCrossDomain = (_req: Request, res: Response, next: NextFunction) => {
 
 app.use(allowCrossDomain)
 
-app.use('/', writeRouter)
+app.use('/', router)
 
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`)
