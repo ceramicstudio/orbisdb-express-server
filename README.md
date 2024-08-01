@@ -44,7 +44,7 @@ CERAMIC_URL: (Value under "Ceramic Node URL")
 
 5. In the same page, set up a new context by clicking the blue `+ Add context` button. Copy the corresponding ID into your `.env` file and assign it to `CONTEXT_ID`.
 
-6. Finally, go to the "Model builder" tab of your studio view and create a new model using the definition found in the [tables](models/tables.sql) file. Copy the corresponding ID and assign it to `TABLE_ID` IN YOUR `.env` file.
+6. Finally, go to the "Model builder" tab of your studio view and create a new model using the definition found in the [tables](data-models/tables.sql) file. Copy the corresponding ID and assign it to `TABLE_ID` IN YOUR `.env` file.
 
 7. You are now ready to run the server! Run the following command in your terminal:
 
